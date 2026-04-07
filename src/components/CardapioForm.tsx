@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { createClient } from '@supabase/supabase-js'
 import DrinksList from './DrinksList'
 
@@ -8,10 +8,16 @@ interface Respostas {
   [key: string]: string
 }
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL || '',
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
-)
+let supabase: any = null
+
+try {
+  supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL || '',
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
+  )
+} catch (err) {
+  console.error('Erro ao conectar Supabase:', err)
+}
 
 interface Pergunta {
   id: string
