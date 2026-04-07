@@ -1,0 +1,157 @@
+/**
+ * Base de receitário da Cozinha Líquida
+ * Drinks que formam a âncora de curadoria do cardápio
+ */
+
+export const BASE_CL = [
+  // Autorais da CL
+  {
+    id: 'cambugim',
+    nome_original: 'Cambugim',
+    tipo: 'Autoral CL',
+    base: 'Rum Agricole',
+    alcool_grau: 28,
+    ingredientes: [
+      'Rum Agricole Rhum Agricole 50ml',
+      'Suco de Cambugim fresco 30ml',
+      'Xarope de gengibre 15ml',
+      'Limão tahiti 15ml',
+      'Angostura Aromatic 2 dashes',
+    ],
+    modo_preparo: 'Agitar com gelo, coar para copo oldtasty com gelo artesanal',
+    copo: 'Oldtasty',
+    momento_ideal: 'Coquetel / Jantar',
+    sensorial: 'Tropical, refrescante, toque picante',
+  },
+  {
+    id: 'carinito',
+    nome_original: 'Cariñito',
+    tipo: 'Autoral CL',
+    base: 'Cachaça Premium',
+    alcool_grau: 24,
+    ingredientes: [
+      'Cachaça Ouro 50ml',
+      'Vermouth Rosso 20ml',
+      'Bitter Amaro Montenegro 10ml',
+      'Twist de laranja',
+    ],
+    modo_preparo: 'Stirrar com gelo, coar para copo coupe, garnish laranja',
+    copo: 'Coupe',
+    momento_ideal: 'Brinde / Final de noite',
+    sensorial: 'Amargo elegante, herboráceo, complexo',
+  },
+
+  // Clássicos reinterpretados
+  {
+    id: 'daiquiri',
+    nome_original: 'Daiquiri',
+    tipo: 'Clássico',
+    base: 'Rum Branco',
+    alcool_grau: 18,
+    ingredientes: ['Rum Branco 60ml', 'Limão fresco 25ml', 'Xarope simples 15ml'],
+    modo_preparo: 'Agitar com gelo, coar para copo coupe',
+    copo: 'Coupe',
+    momento_ideal: 'Chegada / Coquetel',
+    sensorial: 'Cítrico, leve, refrescante',
+  },
+  {
+    id: 'negroni',
+    nome_original: 'Negroni',
+    tipo: 'Clássico',
+    base: 'Gin',
+    alcool_grau: 28,
+    ingredientes: ['Gin 30ml', 'Campari 30ml', 'Vermouth Rosso 30ml', 'Laranja'],
+    modo_preparo: 'Stirrar com gelo, coar para rocks com gelo grande, twist laranja',
+    copo: 'Rocks',
+    momento_ideal: 'Jantar / Pista',
+    sensorial: 'Amargo elegante, frutal, encorpado',
+  },
+  {
+    id: 'margarita',
+    nome_original: 'Margarita',
+    tipo: 'Clássico',
+    base: 'Tequila',
+    alcool_grau: 24,
+    ingredientes: ['Tequila 50ml', 'Cointreau 25ml', 'Limão fresco 25ml', 'Sal'],
+    modo_preparo: 'Agitar com gelo, coar para copo boleado com sal, limão',
+    copo: 'Rocks boleado',
+    momento_ideal: 'Pista',
+    sensorial: 'Cítrico, fresco, com edge salgado',
+  },
+  {
+    id: 'sazerac',
+    nome_original: 'Sazerac',
+    tipo: 'Clássico',
+    base: 'Whiskey Rye',
+    alcool_grau: 32,
+    ingredientes: [
+      'Whiskey Rye 60ml',
+      'Absinthe rinse',
+      'Peychauds Bitter 2 dashes',
+      'Angostura 1 dash',
+      'Limão',
+    ],
+    modo_preparo: 'Stirrar com gelo, coar para rocks com absinthe rinse, twist limão',
+    copo: 'Rocks',
+    momento_ideal: 'Final de noite',
+    sensorial: 'Potente, herbáceo, antigo',
+  },
+  {
+    id: 'mojito',
+    nome_original: 'Mojito',
+    tipo: 'Clássico',
+    base: 'Rum Branco',
+    alcool_grau: 14,
+    ingredientes: [
+      'Rum Branco 50ml',
+      'Hortelã fresca 8-10 folhas',
+      'Limão fresco 25ml',
+      'Xarope simples 15ml',
+      'Refrigerante natural 60ml',
+    ],
+    modo_preparo: 'Macerar hortelã, agitar com gelo, completar com soda, canudo de aço',
+    copo: 'Highball',
+    momento_ideal: 'Chegada',
+    sensorial: 'Refrescante, herbáceo, tropical',
+  },
+  {
+    id: 'martini_gin',
+    nome_original: 'Martini (Gin)',
+    tipo: 'Clássico',
+    base: 'Gin',
+    alcool_grau: 30,
+    ingredientes: ['Gin 60ml', 'Dry Vermouth 10ml', 'Azeitona ou twist'],
+    modo_preparo: 'Stirrar com gelo, coar para copo coupe, azeitona ou twist',
+    copo: 'Coupe',
+    momento_ideal: 'Coquetel refinado',
+    sensorial: 'Sofisticado, herbáceo, mineral',
+  },
+  {
+    id: 'old_fashioned',
+    nome_original: 'Old Fashioned',
+    tipo: 'Clássico',
+    base: 'Whiskey',
+    alcool_grau: 32,
+    ingredientes: ['Whiskey 60ml', 'Angostura 2 dashes', 'Açúcar 1 cubo', 'Laranja'],
+    modo_preparo: 'Dissolver açúcar com angostura, agitar com gelo e whiskey, laranja',
+    copo: 'Rocks',
+    momento_ideal: 'Final de noite',
+    sensorial: 'Elegante, amargo, complexo',
+  },
+]
+
+export function formatarBaseParaClaude(): string {
+  return JSON.stringify(
+    BASE_CL.map((drink) => ({
+      id: drink.id,
+      nome_original: drink.nome_original,
+      tipo: drink.tipo,
+      base_alcoolica: drink.base,
+      ingredientes: drink.ingredientes.join(', '),
+      momento_ideal: drink.momento_ideal,
+      sensorial: drink.sensorial,
+    })),
+    null,
+    2
+  )
+}
